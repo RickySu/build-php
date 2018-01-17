@@ -158,6 +158,13 @@ extension=xsl.so
 extension=zip.so
 ```
 
+/opt/php/7.2/etc/php-fpm.d/www.conf
+```
+user = www-data
+group = www-data
+listen = 127.0.0.1:9000
+```
+
 php 5.6
 ```
 # cd /opt/php/5.6/etc
@@ -203,6 +210,13 @@ extension=xsl.so
 extension=zip.so
 ```
 
+/opt/php/5.6/etc/php-fpm.conf
+```
+user = www-data
+group = www-data
+listen = 127.0.0.1:9001
+```
+
 php 5.2
 ```
 # cd /opt/php/5.2/etc
@@ -245,7 +259,6 @@ extension=xml.so
 extension=xsl.so
 extension=zip.so
 ```
-
 
 /opt/php/5.2/etc/php-fpm.conf
 ```xml
