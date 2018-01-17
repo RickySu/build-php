@@ -25,6 +25,8 @@
 * argon2 https://github.com/P-H-C/phc-winner-argon2
 
 ```
+# apt-add-repository ppa:ondrej/php
+# apt update
 # apt install build-essential bison flex libjpeg-dev libpng-dev libXpm-dev libcurl4-openssl-dev libmhash-dev libmcrypt-dev libmysqlclient-dev libreadline-dev libedit-dev libtidy-dev libssl-dev systemtap-sdt-dev libzip-dev libxml2-dev libicu-dev libxslt-dev libpcre3-dev libsodium-dev automake autoconf
 ```
 
@@ -71,14 +73,14 @@ patch
 
 resolve libs path
 ```
-#ln -sf /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
-#ln -sf /usr/lib/x86_64-linux-gnu/libjpeg.a /usr/lib/
-#ln -sf /usr/lib/x86_64-linux-gnu/libpng.so /usr/lib/
-#ln -sf /usr/lib/x86_64-linux-gnu/libpng.a /usr/lib/
-#ln -sf /usr/lib/x86_64-linux-gnu/libXpm.so /usr/lib/
-#ln -sf /usr/lib/x86_64-linux-gnu/libXpm.a /usr/lib/
-#ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/
-#ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.a /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libjpeg.a /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libpng.so /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libpng.a /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libXpm.so /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libXpm.a /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.so /usr/lib/
+# ln -sf /usr/lib/x86_64-linux-gnu/libmysqlclient.a /usr/lib/
 ```
 
 # 編譯 PHP
