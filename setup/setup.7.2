@@ -1,0 +1,60 @@
+#!/bin/bash
+prefix=/usr
+version=7.2
+./configure \
+--prefix=/opt/php/${version} \
+--libdir=/usr/lib/php/${version} \
+--enable-cli \
+--disable-cgi \
+--disable-phpdbg \
+--build=x86_64-linux-gnu \
+--host=x86_64-linux-gnu \
+--disable-all \
+--disable-debug \
+--disable-rpath \
+--disable-static \
+--with-pic \
+--with-layout=GNU \
+--with-openssl \
+--with-pcre-regex --with-pcre-jit \
+--with-pear \
+--enable-dtrace \
+--enable-hash \
+--enable-session=shared \
+--enable-json=shared \
+--enable-opcache --enable-opcache-file --enable-huge-code-pages \
+--enable-phar=shared \
+--enable-mbstring=shared \
+--enable-intl=shared \
+--enable-posix=shared \
+--enable-phar=shared \
+--enable-shmop=shared --enable-sysvmsg=shared --enable-sysvsem=shared --enable-sysvshm=shared \
+--enable-sockets=shared \
+--enable-filter=shared \
+--enable-pcntl=shared \
+--enable-bcmath=shared \
+--enable-exif=shared \
+--enable-soap=shared \
+--enable-dom=shared \
+--enable-xml=shared --enable-libxml \
+--enable-zip=shared --with-zlib --with-libzip \
+--with-gd=shared --enable-gd-jis-conv \
+--with-curl=shared \
+--with-mhash=shared \
+--with-libedit=shared \
+--with-gettext=shared \
+--with-xsl=shared \
+--with-iconv=shared \
+--with-tidy=shared \
+--with-sodium=shared --with-password-argon2 \
+--enable-ftp=shared \
+--enable-fileinfo=shared \
+--enable-pdo=shared \
+--enable-mysqlnd=shared --with-pdo-mysql=shared --enable-mysqlnd-compression-support --with-mysqli=shared \
+--with-sqlite3=shared --with-pdo-sqlite=shared \
+build_alias=x86_64-linux-gnu \
+host_alias=x86_64-linux-gnu \
+CFLAGS="-g -O2 -fPIE" \
+--with-config-file-path=/etc/php/${version} \
+--with-config-file-scan-dir=/etc/php/{$version}/conf.d \
+--enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data

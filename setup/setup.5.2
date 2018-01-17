@@ -1,0 +1,50 @@
+#!/bin/bash
+prefix=/usr
+version=5.2
+CFLAGS="-g -O2 -fPIE" ./configure \
+--host=x86_64-linux-gnu \
+--prefix=/opt/php/${version} \
+--libdir=/usr/lib/php/${version} \
+--enable-cli \
+--enable-cgi --enable-fpm  --enable-fastcgi \
+--build=x86_64-linux-gnu \
+--host=x86_64-linux-gnu \
+--disable-all \
+--disable-debug \
+--disable-rpath \
+--disable-static \
+--with-pic \
+--with-layout=GNU \
+--with-pcre-regex \
+--with-pear \
+--enable-hash \
+--enable-session=shared \
+--enable-json=shared \
+--enable-mbstring=shared \
+--enable-posix=shared \
+--enable-shmop=shared --enable-sysvmsg=shared --enable-sysvsem=shared --enable-sysvshm=shared \
+--enable-sockets=shared \
+--enable-filter=shared \
+--enable-pcntl=shared \
+--enable-bcmath=shared \
+--enable-exif=shared \
+--enable-soap=shared \
+--enable-dom=shared \
+--enable-xml=shared --enable-libxml \
+--enable-zip=shared --with-zlib \
+--with-gd=shared --enable-gd-jis-conv \
+--with-curl=shared \
+--with-mhash=shared \
+--with-libedit=shared \
+--with-gettext=shared \
+--with-xsl=shared \
+--with-iconv=shared \
+--with-tidy=shared \
+--enable-ftp=shared \
+--enable-pdo=shared \
+--with-mysql=shared --with-pdo-mysql=shared --with-mysqli=shared \
+--with-sqlite=shared --with-pdo-sqlite=shared \
+--with-config-file-path=/etc/php/${version} \
+--with-config-file-scan-dir=/etc/php/{$version}/conf.d
+
+
