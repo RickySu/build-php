@@ -27,7 +27,7 @@
 
 ```
 # apt update
-# apt install build-essential bison flex libjpeg-dev libpng-dev libXpm-dev libcurl4-openssl-dev libmhash-dev libmcrypt-dev libmysqlclient-dev libreadline-dev libedit-dev libtidy-dev libssl-dev systemtap-sdt-dev libzip-dev libxml2-dev libicu-dev libxslt-dev libpcre3-dev libsodium-dev automake autoconf
+# apt install build-essential bison flex libjpeg-dev libpng-dev libXpm-dev libcurl4-openssl-dev libmhash-dev libmcrypt-dev libmysqlclient-dev libreadline-dev libedit-dev libtidy-dev libssl-dev systemtap-sdt-dev libxml2-dev libicu-dev libxslt-dev libpcre3-dev libsodium-dev automake autoconf
 ```
 
 # 編譯 libsodium
