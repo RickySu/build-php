@@ -13,7 +13,7 @@
 * libtidy-dev
 * libssl-dev
 * systemtap-sdt-dev - dtrace
-* libzip-dev
+* libbz2-dev
 * libxml2-dev
 * libicu-dev
 * libxslt-dev
@@ -21,24 +21,40 @@
 * automake
 * autoconf
 * libmysqlclient-dev - php5.2
-* libsodium-dev - php7.2
-* argon2 https://github.com/P-H-C/phc-winner-argon2
+* libzip - all https://github.com/nih-at/libzip/releases
+* libsodium  - php7.2 https://github.com/jedisct1/libsodium/releases
+* argon2 - php7.2 https://github.com/P-H-C/phc-winner-argon2/releases
 
 ```
-# apt-add-repository ppa:ondrej/php
 # apt update
 # apt install build-essential bison flex libjpeg-dev libpng-dev libXpm-dev libcurl4-openssl-dev libmhash-dev libmcrypt-dev libmysqlclient-dev libreadline-dev libedit-dev libtidy-dev libssl-dev systemtap-sdt-dev libzip-dev libxml2-dev libicu-dev libxslt-dev libpcre3-dev libsodium-dev automake autoconf
+```
+
+# 編譯 libsodium
+```
+# cd /usr/src
+# wget https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz
+# cd libsodium-1.0.16
+# ./configure --prefix=/usr
+# make clean all install
 ```
 
 # 編譯 argon2
 
 ```
-# apt install git
 # cd /usr/src
-# git clone https://github.com/P-H-C/phc-winner-argon2
-# cd phc-winner-argon2
-# git checkout 20171227
+# wget https://github.com/P-H-C/phc-winner-argon2/archive/20171227.tar.gz
+# cd phc-winner-argon2-20171227
 # make install
+```
+
+# 編譯 libzip 1.4
+```
+# cd /usr/src
+# wget https://github.com/nih-at/libzip/archive/rel-1-4-0.tar.gz
+# cd libzip-rel-1-4-0
+# CMAKE_INSTALL_PREFIX=/usr cmake .
+# make clean install
 ```
 
 # 安裝 apache2
@@ -163,3 +179,11 @@ ProxyPassMatch "^/php52/(.*\.php(/.*)?)$" "fcgi://localhost:9002/var/www/html"
 </VirtualHost>
 ```
 
+# 設定 process manager
+
+```
+# curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# sudo apt-get install -y nodejs
+# npm -g i pm2
+# pm2 startup
+```
