@@ -335,3 +335,22 @@ ProxyPassMatch "^/php52/(.*\.php(/.*)?)$" "fcgi://localhost:9002/var/www/html"
 # pm2 --name=php-fpm-5.2 start /opt/php/5.2/bin/php-cgi -- -x -y /opt/php/5.2/etc/php-fpm.conf
 # pm2 save  
 ```
+
+# 編譯 extension
+
+以 php7 memcache 為例子  
+
+```
+# apt install unzip
+# wget https://github.com/websupport-sk/pecl-memcache/archive/php7.zip
+# unzip php7.zip
+# cd pecl-memcache-php7
+# /opt/php/7.2/bin/phpize
+# ./configure --with-php-config=/opt/php/7.2/bin/php-config
+# make clean all install
+```
+
+/opt/php/7.2/etc/php.ini
+```
+extension=memcache.so
+```
