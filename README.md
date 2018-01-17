@@ -39,13 +39,13 @@
 # make install
 ```
 
-#安裝 apach2
+# 安裝 apache2
 
 ```
 # apt install apache2
 ```
 
-#下載 Source Code
+# 下載 Source Code
 
 * php 7.2.1 - http://php.net/downloads.php
 * php 5.6.33 - http://php.net/downloads.php
@@ -124,7 +124,7 @@ php 5.2
 
 /etc/apache2/sites-enabled/000-default.conf
 ```
-VirtualHost *:80>
+<VirtualHost *:80>
         # The ServerName directive sets the request scheme, hostname and port that
         # the server uses to identify itself. This is used when creating
         # redirection URLs. In the context of virtual hosts, the ServerName
