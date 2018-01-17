@@ -119,6 +119,45 @@ php 7.2
 # cp [source_path]/php.ini-production /opt/php/7.2/etc/php.ini
 ```
 
+/opt/php/7.2/etc/php.ini
+```
+zend_extension=opcache.so
+extension=mysqlnd.so
+extension=pdo.so
+extension=bcmath.so
+extension=curl.so  
+extension=dom.so    
+extension=exif.so
+extension=fileinfo.so
+extension=ftp.so
+extension=gd.so 
+extension=gettext.so
+extension=iconv.so  
+extension=intl.so 
+extension=json.so   
+extension=mbstring.so
+extension=mysqli.so  
+extension=pcntl.so 
+extension=pdo_mysql.so
+extension=pdo_sqlite.so
+extension=phar.so
+extension=posix.so
+extension=readline.so
+extension=session.so 
+extension=shmop.so   
+extension=soap.so 
+extension=sockets.so 
+extension=sodium.so 
+extension=sqlite3.so 
+extension=sysvmsg.so
+extension=sysvsem.so 
+extension=sysvshm.so 
+extension=tidy.so    
+extension=xml.so     
+extension=xsl.so     
+extension=zip.so
+```
+
 php 5.6
 ```
 # cd /opt/php/5.6/etc
@@ -126,11 +165,103 @@ php 5.6
 # cp [source_path]/php.ini-production /opt/php/5.6/etc/php.ini
 ```
 
+/opt/php/5.6/etc/php.ini
+```
+zend_extension=opcache.so
+extension=mysqlnd.so
+extension=pdo.so
+extension=bcmath.so
+extension=curl.so
+extension=dom.so
+extension=exif.so
+extension=fileinfo.so
+extension=ftp.so
+extension=gd.so
+extension=gettext.so
+extension=iconv.so
+extension=intl.so
+extension=json.so
+extension=mbstring.so
+extension=mysqli.so
+extension=pcntl.so
+extension=pdo_mysql.so
+extension=pdo_sqlite.so  
+extension=phar.so  
+extension=posix.so
+extension=readline.so
+extension=session.so
+extension=shmop.so
+extension=soap.so
+extension=sockets.so
+extension=sqlite3.so
+extension=sysvmsg.so
+extension=sysvsem.so
+extension=sysvshm.so
+extension=tidy.so
+extension=xml.so
+extension=xsl.so
+extension=zip.so
+```
+
 php 5.2
 ```
 # cd /opt/php/5.2/etc
 # mv php-fpm.conf.default php-fpm.conf
-# cp [source_path]/php.ini-production /opt/php/5.2/etc/php.ini
+# cp [source_path]/php.ini-dist /opt/php/5.2/etc/php.ini
+```
+
+/opt/php/5.2/etc/php.ini
+```
+; extension_dir = "./"
+extension=pdo.so   
+extension=bcmath.so
+extension=curl.so
+extension=dom.so 
+extension=exif.so
+extension=ftp.so
+extension=gd.so
+extension=gettext.so
+extension=iconv.so
+extension=json.so
+extension=mbstring.so
+extension=mhash.so 
+extension=mysqli.so
+extension=mysql.so
+extension=pcntl.so
+extension=pdo_mysql.so 
+extension=pdo_sqlite.so
+extension=posix.so   
+extension=readline.so
+extension=session.so
+extension=shmop.so  
+extension=soap.so   
+extension=sockets.so
+extension=sqlite.so 
+extension=sysvmsg.so
+extension=sysvsem.so
+extension=sysvshm.so
+extension=tidy.so
+extension=xml.so
+extension=xsl.so
+extension=zip.so
+```
+
+
+/opt/php/5.2/etc/php-fpm.conf
+```xml
+<section name="global_options">
+    <value name="daemonize">no</value>
+</section>
+<workers>
+    <section name="pool">
+        <value name="listen_address">127.0.0.1:9002</value>
+        <value name="user">www-data</value>
+        <value name="group">www-data</value>
+        <value name="pm">
+            <value name="style">apache-like</value>
+        </value>        
+    </section>
+</workers>
 ```
 
 # 設定 Apache
@@ -172,7 +303,7 @@ php 5.2
         # after it has been globally disabled with "a2disconf".
         #Include conf-available/serve-cgi-bin.conf
 <IfModule proxy_fcgi_module>
-ProxyPassMatch "^/php7/(.*\.php(/.*)?)$" "fcgi://localhost:9000/var/www/html"
+ProxyPassMatch "^/php72/(.*\.php(/.*)?)$" "fcgi://localhost:9000/var/www/html"
 ProxyPassMatch "^/php56/(.*\.php(/.*)?)$" "fcgi://localhost:9001/var/www/html"
 ProxyPassMatch "^/php52/(.*\.php(/.*)?)$" "fcgi://localhost:9002/var/www/html"
 </IfModule>
@@ -186,4 +317,8 @@ ProxyPassMatch "^/php52/(.*\.php(/.*)?)$" "fcgi://localhost:9002/var/www/html"
 # sudo apt-get install -y nodejs
 # npm -g i pm2
 # pm2 startup
+# pm2 --name=php-fpm-7.2 start /opt/php/7.2/sbin/php-fpm -- -F -y /opt/php/7.2/etc/php-fpm.conf
+# pm2 --name=php-fpm-5.6 start /opt/php/5.6/sbin/php-fpm -- -F -y /opt/php/5.6/etc/php-fpm.conf
+# pm2 --name=php-fpm-5.2 start /opt/php/5.2/bin/php-cgi -- -x -y /opt/php/5.2/etc/php-fpm.conf
+# pm2 save  
 ```
